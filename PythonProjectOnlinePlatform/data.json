@@ -1,0 +1,50 @@
+{
+    "courses": {
+        "title": "OOP",
+        "description": "You will learn oop's principals",
+        "teacher": {
+            "name": "Adil",
+            "surname": "Yusublu",
+            "age": 22,
+            "email": "adil.yusublu@gmail.com",
+            "subject": "Programming"
+        },
+        "students": [
+            {
+                "name": "Konul",
+                "surname": "Huseynli",
+                "age": 21,
+                "email": "konul.huseynli@gmail.com",
+                "student_id": "ID - 1"
+            },
+            {
+                "name": "Gunay",
+                "surname": "Memmedov",
+                "age": 23,
+                "email": "gunay.memmedov@gmail.com",
+                "student_id": "ID - 2"
+            },
+            {
+                "name": "Aysun",
+                "surname": "Qasimli",
+                "age": 25,
+                "email": "aysun.qasimli@gmail.com",
+                "student_id": "ID - 3"
+            },
+            {
+                "name": "Emil",
+                "surname": "Humbetov",
+                "age": 34,
+                "email": "emil.humbetov@gmail.com",
+                "student_id": "ID - 4"
+            },
+            {
+                "name": "Ali",
+                "surname": "Aliyev",
+                "age": 17,
+                "email": "ali.aliyev@gmail.com",
+                "student_id": "ID - 5"
+            }
+        ]
+    }
+}

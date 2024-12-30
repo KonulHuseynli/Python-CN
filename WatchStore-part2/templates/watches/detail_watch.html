@@ -1,0 +1,20 @@
+{% extends "base/layout.html" %}
+
+{% block content %}
+{% if watch.image %}
+<img style="width: 200px;" src="{{watch.image.url}}" alt="watch_image-{{watch.id}}">
+{% endif %}
+<p>{{watch.id}}</p>
+<p>{{watch.name}}</p>
+<p>{{watch.brand}}</p>
+<p>{{watch.price}}</p>
+<p>{{watch.description}}</p>
+<p>{{watch.release_date}}</p>
+<!-- <p>------------------------------</p> -->
+
+{% if messages %}
+{% for message in messages %}
+<p>{{ message }}</p>
+{% endfor%}
+{% endif %}
+{% endblock content %}

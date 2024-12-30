@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Watch|Store</title>
+    <style>
+        a{
+            text-decoration: none;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <!-- delete hisseye aiddir -->
+    {% if messages %}
+    {% for message in messages %}
+    <p style="color: green;">{{ message }}</p>
+    {% endfor %}
+    {% endif %}
+
+    <h2>
+        <!-- target_blank -- yeni tabda acir -->
+        <a href="{% url "create_watch" %}" style="background-color: green; border-radius: 8%; padding: 5px; " target="_blank">Create</a>
+    </h2>
+    <p>------------------------------------------</p>
+
+    <!-- #=all blog hissesi -->
+    {%  for watch in watches %}
+    <a href="{% url "update_watch" watch.id %}" style="background-color: blue; border-radius: 8%; padding: 5px;" >Update</a>
+    <a href="{% url "delete_watch" watch.id %}" style="background-color: red; border-radius: 8%; padding: 5px;" >Delete</a>
+    <a href="{% url "detail_watch" watch.id %}">
+        <p>{{watch.id}}</p>
+        <p>{{watch.name}}</p>
+        <p>{{watch.brand}}</p>
+        <p>{{watch.price}}</p>
+        <p>{{watch.release_date}}</p>
+    </a>
+    <p>------------------------------</p>
+    {%   endfor %}
+</body>
+</html>

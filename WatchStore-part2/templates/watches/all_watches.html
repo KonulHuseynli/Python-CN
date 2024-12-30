@@ -1,0 +1,56 @@
+{% extends "base/layout.html" %}
+{% block title %} All Watches {% endblock title %}
+
+{% block content %}
+    
+<!-- Login olan şəxsə homepagede mesaj kimi gorunur  mes{xos geldin admin} -->
+{% if messages %}
+{% for message in messages %}
+<div class="alert alert-success d-flex justify-content-between" role="alert">
+    {{ message }}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>{% endfor %}
+{% endif %}
+
+<div class="row">
+    {% for watch in watches %}
+    <div class="col mt-5">
+        <div class="card" style="width: 18rem;">
+            {% if watch.image %}
+            <img src="{{ watch.image.url }}" alt="watch-image-{{ watch.id }}" class="card-img-top" style="width: auto; height: 250px; object-fit: cover;">
+            {% else %}
+            <img src="/media/media/Watchlogo.png" alt="default" style="width: auto; height: 250px; object-fit: cover;">
+            {% endif %}
+            <div class="card-body">
+                <h5 class="card-title">{{ watch.name }}</h5>
+                <p class="card-text">{{ watch.brand }}</p>
+                <h5 class="card-title">{{ watch.author.username }}</h5>
+                {% for category in watch.categories.all %}
+                <p class="card-text">{{ category.name }}</p>
+                {% endfor %}
+                <div class="d-flex">
+                    <a href="{% url "detail_watch" watch.id %}" class="btn btn-warning">Detail</a>
+                    {% if watch.author == user %}
+                    <form action="{% url "delete_watch" watch.id %}" method="post">
+                        {% csrf_token %}
+                        <button class="btn btn-danger ms-2">Delete</button>
+                    </form>
+                    {% endif %}
+
+                    {% if watch.author == user %}
+                    <form action="{% url "update_watch" watch.id %}" method="post">
+                        {% csrf_token %}
+                        <button class="btn btn-info ms-2">Update</button>
+                    </form>
+                    {% endif %}
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% endfor %}
+</div>
+
+{% endblock content %}
+

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WatchStore | Detail</title>
+</head>
+<body>
+    <p>{{watch.id}}</p>
+    <p>{{watch.name}}</p>
+    <p>{{watch.brand}}</p>
+    <p>{{watch.price}}</p>
+    <p>{{watch.description}}</p>
+    <p>{{watch.release_date}}</p>
+    <!-- <p>------------------------------</p> -->
+
+    {% if messages %}
+    {% for message in messages %}
+    <p>{{ message }}</p>
+    {% endfor%}
+    {% endif %}
+</body>
+</html>

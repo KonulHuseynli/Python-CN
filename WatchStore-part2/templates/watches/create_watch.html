@@ -1,0 +1,28 @@
+{% extends "base/layout.html" %}
+{% load crispy_forms_filters %}
+{% load crispy_forms_tags %}
+
+{% block title %} Create Blog {% endblock title %}
+
+{% block navbar %}{% endblock navbar %}
+{% block content %}
+<form action="" method="post", enctype="multipart/form-data" >
+    {% csrf_token %}
+    <!--server bizim sorgunu taniyir.Django-da bütün POST sorğuları üçün {% csrf_token %} tələb olunur. Bu token form məlumatlarının təhlükəsizliyini təmin edir və istifadəçilərin form göndərərkən yalnız etibarlı sorğular etdiyini yoxlayır.-->
+    {{watch_form| crispy}}
+    <!-- as_p metodu Django formunun hər bir sahəsini <p> etiketi içərisində bir blok olaraq göstərir -->
+        <div class="d-flex justify-content-center">
+            <button type="submit" class="btn btn-outline-success btn-lg">Submit</button>
+        </div>
+</form>
+{% if messages %}
+{% for message in messages %}
+<p>{{ message }}</p><br><br>
+{% endfor %}
+{% endif%}
+{% endblock content %}
+
+
+
+
+

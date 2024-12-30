@@ -1,0 +1,2 @@
+accounts- register , login, user info
+watches - add watch , detail watch , all watches, delete watch , update watch
